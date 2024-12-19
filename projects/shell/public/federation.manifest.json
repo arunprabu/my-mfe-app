@@ -1,0 +1,4 @@
+{
+	"todos": "http://localhost:4201/remoteEntry.json",
+	"users": "http://localhost:4202/remoteEntry.json"
+}

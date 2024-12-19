@@ -77,17 +77,18 @@ Building large-scale applications can be challenging, especially with many featu
 
 ---
 
-### **Step 5: Configure Remote (Todo) Application**
+### **Step 5: Configure Remote (Todos) Application**
 
 1. **Set up the Todo application as a remote module**:
 
     Run the following command:
 
     ```bash
-    ng g @angular-architects/native-federation:init --project todo --port 4201 --type remote
+    ng g @angular-architects/native-federation:init --project todos --port 4201 --type remote
+    ng g @angular-architects/native-federation:init --project users --port 4202 --type remote
     ```
 
-    The Todo app will now be a remote module available on port 4201. The Shell application will load this module dynamically.
+    The Todo app will now be a remote module available on port 4201 and users on 4202. The Shell application will load these modules dynamically.
 
 ---
 
@@ -98,7 +99,7 @@ Building large-scale applications can be challenging, especially with many featu
     Run this command to create a Home component:
 
     ```bash
-    ng g c pages/home --project shell
+    ng g c pages/home --inline-style --project shell
     ```
 
 2. **Update the routing configuration**:
@@ -126,12 +127,19 @@ Building large-scale applications can be challenging, especially with many featu
 
     **Explanation**:
     - The default route (`''`) loads the `HomeComponent`.
-    - The `/todo` route dynamically loads the Todo remote module using `loadRemoteModule`.
+    - The `/todos` route dynamically loads the Todo remote module using `loadRemoteModule`.
     - A wildcard route (`**`) redirects any unknown paths to `HomeComponent`.
+
+### **Step 7: Open projects/shell/public/federation.manifest.json**
+and verify that the remote modules are listed as follows:
+{
+	"todos": "http://localhost:4201/remoteEntry.json",
+	"users": "http://localhost:4202/remoteEntry.json"
+}
 
 ---
 
-### **Step 7: Running the Applications**
+### **Step 8: Running the Applications**
 
 1. **Run both the Shell and Todo applications**:
 
@@ -139,15 +147,17 @@ Building large-scale applications can be challenging, especially with many featu
 
     ```bash
     ng serve shell
-    ng serve todo
+    ng serve todos
+    ng serve users
     ```
 
     - The Shell application will run on `http://localhost:4200`.
-    - The Todo application will run on `http://localhost:4201`.
+    - The Todos application will run on `http://localhost:4201`.
+    - The Users application will run on `http://localhost:4202`.
 
 ---
 
-### **Step 8: Updating Shell’s HTML**
+### **Step 9: Updating Shell’s HTML**
 
 1. **Update the Shell’s `app.component.html` to include navigation**:
 
@@ -161,11 +171,11 @@ Building large-scale applications can be challenging, especially with many featu
     <router-outlet></router-outlet>
     ```
 
-    This will create navigation links between the Shell and Todo applications.
+    This will create navigation links between the Shell and Todos applications.
 
 ---
 
-### **Step 9: Testing the Application**
+### **Step 10: Testing the Application**
 
 1. **Test the setup**:
 
