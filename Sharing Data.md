@@ -8,9 +8,9 @@ You can create a shared service that both the Host and Remote applications can c
 Steps:
 Create a Shared Library First, you can generate a shared library inside the workspace that both applications can use.
 
-bash
-Copy code
+```
 ng generate library shared
+```
 This will create a shared library where you can place shared services, models, or utilities.
 
 Create a Shared Service Inside the shared library, create a service to manage shared data.
@@ -108,7 +108,8 @@ export class AppComponent implements OnInit {
   }
 }
 Whenever the data is updated in the Shell application via updateData(), the Todo application will automatically receive the new data because they are both subscribing to the same BehaviorSubject from the shared service.
-2. Using Custom Events via Window.postMessage (Cross-App Communication)
+
+## 2. Using Custom Events via Window.postMessage (Cross-App Communication)
 If you want to pass data between the Host and Remote applications when they are running in different windows or different tabs, you can use the window.postMessage API to communicate across different contexts (like if the Host and Remote apps are in separate browser windows).
 
 Steps:
@@ -143,7 +144,8 @@ export class AppComponent implements OnInit {
     });
   }
 }
-3. Using Local Storage or Session Storage
+
+### 3. Using Local Storage or Session Storage
 If the Host and Remote applications are loaded in separate browser contexts (tabs/windows), you could also use localStorage or sessionStorage to persist data across different windows.
 
 Example:
@@ -165,8 +167,10 @@ loadDataFromLocalStorage() {
   const data = JSON.parse(localStorage.getItem('todoData') || '{}');
   this.todoData = data;
 }
-4. Using Shared State Management
-If your project is more complex and requires advanced state sharing, you can integrate a state management library like NgRx or Akita. These libraries can manage shared state across both applications and provide more advanced mechanisms for dispatching and selecting state.
+
+
+### 4. Using Shared State Management
+If your project is more complex and requires advanced state sharing, you can integrate a state management library like NgRx or or NgXs or Akita. These libraries can manage shared state across both applications and provide more advanced mechanisms for dispatching and selecting state.
 
 Conclusion
 To share data between the Host (Shell) and Remote (Todo) applications in your Angular Micro Frontend setup, the most common approaches are:

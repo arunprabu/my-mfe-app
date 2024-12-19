@@ -1,27 +1,30 @@
-Building a component library for your Angular 18 app with micro frontends using native federation can be a great way to ensure that your shared UI components are reusable across the shell, todos, and users applications. Here’s a step-by-step guide to help you set up a component library and integrate it with your micro frontends:
+Building a component library for your Angular 18 app with micro frontends using native federation 
+can be a great way to ensure that your shared UI components are reusable across the shell, 
+todos, and users applications. 
+Here’s a step-by-step guide to help you set up a component library and integrate it with your micro frontends:
 
 1. Create the Component Library
 Let's begin by creating a separate Angular library where you will store your reusable components.
 
 Generate the Library First, navigate to your workspace and generate a new Angular library:
 
+```
+ng generate library bosch-ui-lib
+```
+
+This will create a new library inside your workspace, typically located at projects/bosch-ui-lib.
+
+Create Reusable Components Inside the bosch-ui-lib project, you can start adding your reusable UI components. For example, let's create a button component:
 
 
-ng generate library component-library
-This will create a new library inside your workspace, typically located at projects/component-library.
-
-Create Reusable Components Inside the component-library project, you can start adding your reusable UI components. For example, let's create a button component:
-
-
-
-ng generate component Button --project=component-library
+ng generate component Button --project=bosch-ui-lib
 This will create a button component inside the library. You can add styles, templates, and logic to this component.
 
-Export Components In the component-library module, ensure that your components are exported so they can be used in other applications:
+Export Components In the bosch-ui-lib module, ensure that your components are exported so they can be used in other applications:
 
 typescript
 
-// projects/component-library/src/lib/component-library.module.ts
+// projects/component-library/src/lib/bosch-ui-lib.module.ts
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from './button/button.component';
@@ -32,6 +35,7 @@ import { ButtonComponent } from './button/button.component';
   exports: [ButtonComponent],
 })
 export class ComponentLibraryModule {}
+
 2. Enable Module Federation
 To use native module federation for your micro frontends, you'll need to configure Webpack Module Federation in your projects (shell, todos, users).
 
