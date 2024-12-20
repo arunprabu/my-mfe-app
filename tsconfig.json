@@ -4,8 +4,11 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "bosch-ui-lib": [
-        "./dist/bosch-ui-lib"
+      "shared": [
+        "./dist/shared"
+      ],
+      "ui-component-lib": [
+        "./dist/ui-component-lib"
       ]
     },
     "outDir": "./dist/out-tsc",

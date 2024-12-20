@@ -22,6 +22,7 @@
     "es-module-shims": "^1.5.12",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
+    "ui-component-lib": "file:dist/ui-component-lib",
     "zone.js": "~0.14.10"
   },
   "devDependencies": {

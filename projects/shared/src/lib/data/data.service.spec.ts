@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { BoschUiLibService } from './bosch-ui-lib.service';
+import { DataService } from './data.service';
 
-describe('BoschUiLibService', () => {
-  let service: BoschUiLibService;
+describe('DataService', () => {
+  let service: DataService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(BoschUiLibService);
+    service = TestBed.inject(DataService);
   });
 
   it('should be created', () => {

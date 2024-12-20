@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BoschUiLibComponent } from './bosch-ui-lib.component';
+import { UiComponentLibComponent } from './ui-component-lib.component';
 
-describe('BoschUiLibComponent', () => {
-  let component: BoschUiLibComponent;
-  let fixture: ComponentFixture<BoschUiLibComponent>;
+describe('UiComponentLibComponent', () => {
+  let component: UiComponentLibComponent;
+  let fixture: ComponentFixture<UiComponentLibComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BoschUiLibComponent]
+      imports: [UiComponentLibComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(BoschUiLibComponent);
+    fixture = TestBed.createComponent(UiComponentLibComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

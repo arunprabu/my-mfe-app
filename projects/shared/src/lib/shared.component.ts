@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'lib-button',
+  selector: 'lib-shared',
   standalone: true,
   imports: [],
   template: `
-    <button>Click me</button>
+    <p>
+      shared works!
+    </p>
   `,
   styles: ``
 })
-export class ButtonComponent {
+export class SharedComponent {
 
 }

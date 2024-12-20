@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/bosch-ui-lib",
+  "dest": "../../dist/ui-component-lib",
   "lib": {
     "entryFile": "src/public-api.ts"
   }
